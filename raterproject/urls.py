@@ -3,11 +3,14 @@ from django.conf.urls import include
 from django.urls import path
 from gamerraterapi.views import register_user, login_user
 from rest_framework import routers
+from gamerraterapi.views.category import CategoryView
+from gamerraterapi.views.game import GameView
+from gamerraterapi.views.gamecategory import GameCategoryView
 
 router = routers.DefaultRouter(trailing_slash=False)
-""" router.register(r'gametypes', GameTypeView, 'gametype')
 router.register(r'games', GameView, 'game')
-router.register(r'events', EventView, 'event') """
+router.register(r'categories', CategoryView, 'category')
+router.register(r'gamecategories', GameCategoryView, 'gamecategories')
 
 urlpatterns = [
     # Requests to http://localhost:8000/register will be routed to the register_user function

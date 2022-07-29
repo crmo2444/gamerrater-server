@@ -31,9 +31,6 @@ class GameView(ViewSet):
             Response -- JSON serialized list of game types
         """
         games = Game.objects.all()
-        game_type = request.query_params.get('type', None)
-        if game_type is not None:
-            games = games.filter(game_type_id=game_type)
 
         serializer = GameSerializer(games, many=True)
         return Response(serializer.data)
@@ -44,16 +41,14 @@ class GameView(ViewSet):
         Returns
             Response -- JSON serialized game instance
         """
-        player = Player.objects.get(user=request.auth.user)
-        game_type = Category.objects.get(pk=request.data["game_type"])
-
         game = Game.objects.create(
-            game_type=game_type,
             title=request.data["title"],
-            maker=request.data["maker"],
-            player=player,
+            description=request.data["description"],
+            designer=request.data["designer"],
+            release_date=request.data["release_date"],
             number_of_players=request.data["number_of_players"],
-            skill_level=request.data["skill_level"]
+            duration = request.data["duration"],
+            age_rating = request.data["age_rating"]
         )
         serializer = GameSerializer(game)
         return Response(serializer.data)
@@ -66,13 +61,13 @@ class GameView(ViewSet):
         """
 
         game = Game.objects.get(pk=pk)
-        game.title = request.data["title"]
-        game.maker = request.data["maker"]
-        game.number_of_players = request.data["number_of_players"]
-        game.skill_level = request.data["skill_level"]
-
-        game_type = Category.objects.get(pk=request.data["game_type"])
-        game.game_type = game_type
+        game.title=request.data["title"],
+        game.description=request.data["description"],
+        game.designer=request.data["designer"],
+        game.release_date=request.data["release_date"],
+        game.number_of_players=request.data["number_of_players"],
+        game.duration = request.data["duration"],
+        game.age_rating = request.data["age_rating"]
         game.save()
 
         return Response(None, status=status.HTTP_204_NO_CONTENT)
@@ -87,5 +82,5 @@ class GameSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Game
-        fields = ('id', 'game_type', 'title', 'maker', 'player', 'number_of_players', 'skill_level')
-        depth = 2
+        fields = ('id', 'title', 'description', 'designer', 'release_date', 'number_of_players', 'duration', 'age_rating')
+        depth = 1
