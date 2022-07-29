@@ -1,0 +1,28 @@
+[
+    {
+        "model": "gamerraterapi.game",
+        "pk": 1,
+        "fields": {
+            "title": "Skyrim",
+            "description": "The Elder Scrolls V: Skyrim is an action role-playing video game developed by Bethesda Game Studios and published by Bethesda Softworks",
+            "designer": "Bethesda",
+            "release_date": "2011-11-11",
+            "number_of_players": 100,
+            "duration": 100,
+            "age_rating": 13
+        }
+    },
+    {
+        "model": "gamerraterapi.game",
+        "pk": 2,
+        "fields": {
+            "title": "The Legend of Zelda: Breath of the Wild",
+            "description": "The Legend of Zelda: Breath of the Wild is a 2017 action-adventure game developed and published by Nintendo for the Nintendo Switch and Wii U consoles. The game is an installment of The Legend of Zelda series and is set at the end of its timeline.",
+            "designer": "Nintendo",
+            "release_date": "2017-03-03",
+            "number_of_players": 100,
+            "duration": 100,
+            "age_rating": 13
+        }
+    }
+]

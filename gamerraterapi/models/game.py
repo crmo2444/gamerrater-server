@@ -7,5 +7,5 @@ class Game(models.Model):
     designer = models.CharField(max_length=50)
     release_date = models.DateField()
     number_of_players = models.IntegerField()
-    duration = models.TimeField()
+    duration = models.IntegerField()
     age_rating = models.IntegerField()
