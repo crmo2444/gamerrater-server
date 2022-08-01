@@ -1,0 +1,29 @@
+[
+    {
+        "model": "gamerraterapi.gamereview",
+        "pk": 1,
+        "fields": {
+            "player": 1,
+            "game": 1,
+            "review": "Awesome!"
+        }
+    },
+    {
+        "model": "gamerraterapi.gamereview",
+        "pk": 2,
+        "fields": {
+            "player": 1,
+            "game": 2,
+            "review": "My favorite!"
+        }
+    },
+    {
+        "model": "gamerraterapi.gamereview",
+        "pk": 2,
+        "fields": {
+            "player": 2,
+            "game": 2,
+            "review": "Great game!"
+        }
+    }
+]
